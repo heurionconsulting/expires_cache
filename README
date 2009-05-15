@@ -1,0 +1,76 @@
+ExpireCache
+===========
+	ExpireCache is a simple rails plugin inteded only to provide access to expire the cache from rails models.
+	Implement caching using rails inbuilt caching method(page caching, action caching and fragment caching).
+	More details on implementing caching can be found on http://railsenvy.com.
+
+Installation
+============
+	1. Download the plugin from -------- , extract the zip and put it inside your vendor/plugin directory.
+	2. Add the following lines to application.rb
+	
+	  before_filter :set_base
+	  
+	  def set_base
+	    ExpireCache::Baseclass.base = self
+	  end
+  
+Usage
+=====
+	This plugin is only inteded to provide access to expire the cache from models.
+	Implement caching using rails inbuilt caching method(page caching, action caching and fragment caching).
+	More details on implementing caching can be found on http://railsenvy.com.
+	
+	To expire the cached pages use the following methods either inside controllers or inside model call-backs(eg. after_save)
+	
+	1. expire_page_cache(): This is an alternative to expire_page() of rails used
+							to expire the pages cached using caches_page
+	
+	2. expire_action_cache(): This is an alternative to expire_action() of rails used
+							to expire the pages cached using caches_action
+	
+	3. expire_fragment_cache(): This is an alternative to expire_fragment() of rails used
+							to expire the pages cached using cache() helper.
+
+Example
+=======
+	1. To expire a page cache for the controller=>"categories" and action=>"list", from the
+	model category each time when a new	category is created or destroyed:
+	
+		class Category < ActiveRecord::Base
+		  after_save :expire_caches
+		  before_destroy :expire_caches
+		  
+		  def expire_caches
+		    expire_page_cache(:controller=>"categories", :action=>"list")
+		  end
+		end
+		
+	2. To expire an action cache for the controller=>"categories" and action=>"show", from the
+	model category each time when a	category is updated or destroyed:
+	
+		class Category < ActiveRecord::Base
+		  after_update :expire_caches
+		  before_destroy :expire_caches
+		  
+		  def expire_caches
+		    expire_action_cache(:controller=>"categories", :action=>"show", :id=>self.id)
+		  end
+		end
+		
+	3. To expire fragment cache:
+		Lets say the categories list is cached page by page using fragment caching. Following code
+		expires the first page of the fragment cache:
+		
+			expire_fragment_cache(:controller=>"categories", :action=>"list", :page=>1)
+		
+		Following code expires all the pages of the categories list:
+		
+			expire_fragment_cache(:controller=>"categories")
+			
+		Alternatively a group of cached fragments can also be expired using regular expression as shown below:
+		
+			expire_fragment_cache(%r{'categories/*.*'})
+
+
+Copyright (c) 2009 Harish, released under the MIT license
