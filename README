@@ -73,7 +73,7 @@ Example
 			
 		Alternatively a group of cached fragments can also be expired using regular expression as shown below:
 		
-			expire_fragment_cache(%r{'categories/*.*'})
+			expire_fragment_cache(%r{categories/*.*})
 
 
 Copyright (c) 2009 Harish, released under the MIT license
