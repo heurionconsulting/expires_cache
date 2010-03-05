@@ -6,9 +6,9 @@ ExpireCache
 
 Installation
 ============
-	1. Download the plugin from http://github.com/harish86/ExpireCache/tree, extract and put it inside your vendor/plugin directory.
+	1. Download the plugin from http://github.com/harish86/expires_cache, extract and put it inside your vendor/plugin directory.
 		or
-	   Clone using "git clone git://github.com/harish86/ExpireCache.git" into your vendor/plugin directory
+	   Clone using "git clone git://github.com/harish86/expires_cache.git" into your vendor/plugin directory
 	   
 	2. Add the following lines to application.rb
 	
