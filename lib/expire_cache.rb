@@ -25,14 +25,20 @@ module ExpireCache
     else
       ExpireCache::Baseclass.base.expire_fragment(options)
     end
+  rescue
+    logger.info("error: Expire Cache cannot expire the cache, might be due to request not being user request which has not initialized controllers.")
   end
   
   def expire_action_cache(options = {})
     ExpireCache::Baseclass.base.expire_action(options)
+  rescue
+    logger.info("error: Expire Cache cannot expire the cache, might be due to request not being user request which has not initialized controllers.")
   end
   
   def expire_page_cache(options = {})
     ExpireCache::Baseclass.base.expire_page(options)
+  rescue
+    logger.info("error: Expire Cache cannot expire the cache, might be due to request not being user request which has not initialized controllers.")
   end
 end
 

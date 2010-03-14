@@ -9,18 +9,10 @@ Installation
 	1. Download the plugin from http://github.com/heurionconsulting/expires_cache, extract and put it inside your vendor/plugin directory.
 		or
 	   Clone using "git clone git://github.com/heurionconsulting/expires_cache.git" into your vendor/plugin directory
-	   
-	2. Add the following lines to application.rb
-	
-	  before_filter :set_base
-	  
-	  def set_base
-	    ExpireCache::Baseclass.base = self
-	  end
   
 Usage
 =====
-	This plugin is only inteded to provide access to expire the cache from models.
+	This plugin is only inteded to provide access to expire the cache from models but can be used from controllers as well.
 	Implement caching using rails inbuilt caching method(page caching, action caching and fragment caching).
 	More details on implementing caching can be found on http://railsenvy.com.
 	
