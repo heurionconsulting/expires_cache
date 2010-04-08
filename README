@@ -67,12 +67,21 @@ Example
 		
 			expire_fragment_cache(%r{categories/*.*})
 
+   Contributions / Credits
+==================
+
+1. Harish P for development of the plugin
 
 Contact
-=======
-    Email: p.harish86@gmail.com
+========
 
+Any issues regarding bugs in plugin code or in the data/information can be brought to notice of Heurion Consulting
+
+email: info@heurionconsulting.com / p.harish86@gmail.com
+website: www.heurionconsulting.com
+blog: http://railsvoice.wordpress.com
+wiki: http://wiki.github.com/heurionconsulting/expires_cache
 
 License
 =======
-	Copyright (c) 2009 [Harish], released under the MIT license
+Copyright (c) 2010 HEURION CONSULTING, released under the MIT license
